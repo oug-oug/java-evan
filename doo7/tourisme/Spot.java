@@ -14,7 +14,6 @@ public class Spot extends Lieu {
         super(nom);
         this.etoiles = nb;
     }
-
     /**
      *  une méthode toString : le nom du lieu suffixé par autant de caractères '*' qu'il y a d'étoiles (exemple : Mirecourt**)
      * @param s
@@ -42,7 +41,7 @@ public class Spot extends Lieu {
      */
     public Lieu declassement() {
         etoiles = 0;
-        return new Lieu(this.nom);
+        return this;
     }
     
     /**
