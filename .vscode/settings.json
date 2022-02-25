@@ -1,7 +1,6 @@
 {
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
-        "doo7/navigation.jar",
         "doo7/voyage.jar"
     ]
 }

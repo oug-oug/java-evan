@@ -9,11 +9,16 @@ public class Spot extends Lieu {
     private static int MAX = 5;
     private int etoiles;
 
-    // Créer un un constructeur avec un nom et un nombre d'étoiles en paramètres
-    public Spot(String nom, int nb) {
+    /**
+     * /** Constructeur de Spot.
+     * @param nom Nom du Spot.
+     * @param etoiles Étoiles du Spot.
+     */
+    public Spot(String nom, int etoiles) {
         super(nom);
-        this.etoiles = nb;
+        this.etoiles = etoiles;
     }
+
     /**
      *  une méthode toString : le nom du lieu suffixé par autant de caractères '*' qu'il y a d'étoiles (exemple : Mirecourt**)
      * @param s
@@ -59,9 +64,17 @@ public class Spot extends Lieu {
             }
             return s;
         } else {
-            return new Spot(l.nom, 1);
+            return new Spot(l.toString(), 1);
         }
     }
 
+    /** Méthode qui renvoie vrai si le Spot s a le même nom et le même nombre d'étoiles
+     * @param s Spot à comparer.
+     * @return Vrai si les deux spots sont identiques, faux sinon.
+     */
+    public boolean equals(Spot s) {
+        return (this.toString().equals(s.toString()) && this.etoiles == s.etoiles);
+    }
+    
 
 }
