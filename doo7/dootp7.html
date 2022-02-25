@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head><title>DOO TP4</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  </head>
+  <body bgcolor="#3FBFAF" text="#4F2F1F">
+    <h2>DOO - Canevas du TP 7 : H&eacute;ritage et classe Object</h2>
+    <b>Attendus :</b>
+    <dl>
+      <dd> - D&eacute;velopper une classe h&eacute;ritant d'une autre. </dd>
+      <dd> - Comprendre le polymorphisme. </dd>
+      <dd> - Prendre en compte des tests externes. </dd>
+      <dd> - Red&eacute;finir les m&eacute;thodes de la classe
+           <tt>Object</tt> </dd>.
+    </dl>
+
+    <b>A rendre en fin de TP :</b>
+    <dl>
+      <dt> D&eacute;poser sur Arche une archive ZIP (seul format
+           accept&eacute;), avec : </dt>
+      <dd> - Le compte-rendu (PDF + DOC/ODT), </dd>
+      <dd> - les codes sources <u>r&eacute;alis&eacute;s</u>, rang&eacute;s
+           dans un r&eacute;pertoire <tt>navigation</tt> et dans un
+           r&eacute;pertoire <tt>tourisme</tt>, </dd>
+      <dd> - les paquetages <tt>navigation.jar</tt> et
+           <tt>tourisme.jar</tt>, </dd>
+      <dd> - la documentation <b>compl&egrave;te</b> du paquetage
+           <tt>tourisme</tt>. </dd>
+      <dd> - Rien d'autre. </dd>
+    </dl>
+
+    <b>Sujet</b>
+    <p> En s'appuyant sur les services des classes du paquetage
+        <tt>voyage</tt> (<a href=doc/index.html>documentation</a>),
+        il faudra compl&eacute;ter le paquetage <tt>navigation</tt>
+        et d&eacute;velopper un nouveau paquetage <tt>tourisme</tt>
+        contenant trois classes : <em>Spot</em>, <em>Touriste</em> et
+        <em>Plaisancier</em>
+        h&eacute;ritant des classes du paquetage <tt>voyage</tt>. </p>
+    <p> Les classes ne devront contenir si possible <b>que</b> les attributs
+        et m&eacute;thodes demand&eacute;es dans l'&eacute;nonc&eacute;.
+        Si jamais, une nouvelle m&eacute;thode non demand&eacute;e doit
+        &ecirc;tre ajout&eacute;e, il faudra fournir une justification
+        dans le compte-rendu. </p>
+
+    <dd>
+      <dl>
+      <dt> La classe <em>Spot</em> repr&eacute;sente un lieu touristique.
+           Un spot <b>est un lieu</b> caract&eacute;ris&eacute; par un
+           nombre d'&eacute;toiles dans le guide Machin, pouvant varier de
+           1 &agrave; 4 (d&eacute;clarer des constantes de classe <tt>MIN</tt>
+           et <tt>MAX</tt> pour stocker ces valeurs).
+           Pour cette application, on peut consid&eacute;rer qu'un lieu sans
+           &eacute;toile n'est pas un <em>Spot</em> mais une simple instance
+           de <em>Lieu</em>. <br>
+           Le nombre d'&eacute;toiles (attribut prot&eacute;g&eacute;
+           nomm&eacute; <tt>etoiles</tt>) ne pourra plus &ecirc;tre
+           modifi&eacute; apr&egrave;s avoir &eacute;t&eacute;
+           initialis&eacute;. </dt>
+      <dt> Inclure : </dt>
+      <dd> - un constructeur avec un nom et un nombre d'&eacute;toiles
+           en param&egrave;tres, </dd>
+      <dd> - une m&eacute;thode <tt>toString</tt> : le nom du lieu
+           suffix&eacute; par autant de caract&egrave;res <tt>'*'</tt> qu'il
+           y a d'&eacute;toiles (exemple : <tt>Mirecourt**</tt>), </dd>
+      <dd> - une m&eacute;thode <tt>score</tt> retournant le nombre
+           d'&eacute;toiles. </dd>
+      <dd> - une m&eacute;thode <tt>declassement</tt> retournant le lieu
+           correspondant au spot sans &eacute;toile. </dd>
+      <dd> - et un constructeur prenant un lieu en param&egrave;tre et
+           lui ajoutant une &eacute;toile.
+        <dl>
+          <dd> -> Un spot avec une &eacute;toile est retourn&eacute; dans le
+            cas d'un simple lieu. </dd>
+          <dd> -> Si le lieu est un spot avec d&eacute;j&agrave; quatre
+            &eacute;toiles, aucune &eacute;toile suppl&eacute;mentaire
+            n'est ajout&eacute;e. </dd>
+        </dl>
+      </dd>
+      <dt> Attention : bien faire le n&eacute;cessaire pour que le nombre
+         d'&eacute;toiles soit toujours compris entre 1 et 4. </dt>
+    </dl>
+    <dl>
+      <dt> Pour chacune des classes <em>Port</em>, <em>Marinier</em> et
+           <em>Spot</em>, red&eacute;finir <b>seulement si
+           n&eacute;cessaire</b> la m&eacute;thode <tt>equals</tt>,
+           sachant : </dt>
+      <dd> - que deux ports sont &eacute;quivalents s'ils ont le
+           m&ecirc;me nom et sont sur la m&ecirc;me rivi&egrave;re
+           (attention, en cas de comparaison d'un port avec un simple lieu,
+           il faut juste v&eacute;rifier qu'ils ont le m&ecirc;me nom) </dt>
+      <dd> - que deux mariniers sont &eacute;quivalents s'ils ont le
+           m&ecirc;me score et le m&ecirc;me nombre d'&eacute;tapes, </dt>
+      <dd> - que deux spots sont &eacute;quivalents s'ils ont le
+           m&ecirc;me nom et le m&ecirc;me nombre d'&eacute;toiles. </dt>
+      <dd> Il faudra indiquer dans le compte-rendu pourquoi il est
+           n&eacute;cessaire ou pourquoi il n'est pas n&eacute;cessaire de
+           red&eacute;finir cette m&eacute;thode. </dt>
+    </dl>
+    <dl>
+      <dt> La classe <em>Touriste</em> repr&eacute;sente un touriste,
+           sachant qu'un touriste <b>est un voyageur</b> s'int&eacute;ressant
+           plus particuli&egrave;rement aux spots.
+           A cet effet, munir la classe <em>Touriste</em> : </dt>
+      <dd> - d'un constructeur, sachant qu'au d&eacute;part, le touriste
+           n'a aucune &eacute;tape, </dd>
+      <dd> - d'une red&eacute;finition de la m&eacute;thode <tt>score</tt>
+           retournant le nombre d'&eacute;toiles cumul&eacute;es, </dd>
+      <dd> - d'une m&eacute;thode <tt>joyeux</tt> indiquant si le nombre
+           d'&eacute;toiles cumul&eacute;es est strictement sup&eacute;rieur
+           au nombre de lieux visit&eacute;s, </dd>
+      <dd> - d'une m&eacute;thode <tt>endurance</tt> retournant le nombre
+           de lieux visit&eacute;s (spots ou non). </dd>
+      <dd> - et, <b>seulement si n&eacute;cessaire</b>, une
+           red&eacute;finition de la m&eacute;thode <tt>equals</tt>
+           sachant que deux touristes sont &eacute;quivalents
+           s'ils ont un m&ecirc;me score et un nombre identique d'&eacute;tapes,
+           et s'ils ont la m&ecirc;me satisfaction (tous les deux joyeux ou
+           tous les deux d&eacute;&ccedil;us). </dd>
+      <dt> Cette classe ne devra contenir aucune autre m&eacute;thode. </dt>
+    </dl>
+    <dl>
+      <dt> La classe <em>Plaisancier</em> repr&eacute;sente un plaisancier,
+           sachant qu'un plaisancier <b>est un touriste</b> qui collectionne
+           les visites de ports (sauf le tout premier plaisancier).
+           Munir la classe <em>Plaisancier</em> : </dt>
+      <dd> - d'une constante de classe nomm&eacute;e <tt>COLLECTION</tt> et
+           initialis&eacute;e &agrave; 12, indiquant le nombre max de lieux
+           &agrave; visiter &agrave; partir du deuxi&egrave;me plaisancier
+           cr&eacute;&eacute;, </dd>
+      <dd> d'un attribut <tt>exigence</tt> strictement positif, et
+           inf&eacute;rieur &agrave; <tt>COLLECTION</tt> indiquant le seuil
+           de satisfaction du plaisancier, </dd>
+      <dd> - d'un constructeur permettant d'initialiser l'exigence du
+           plaisancier, et garantissant qu'&agrave; partir du deuxi&egrave;me
+           plaisancier, il sera possible de visiter les 12 lieux, </dd>
+      <dd> - une red&eacute;finition de la m&eacute;thode <tt>joyeux</tt>
+           de sorte qu'elle indique si le plaisancier visite au moins autant
+           de ports que ce qui est attendu par son niveau d'exigence, </dd>
+      <dd> - et, <b>seulement si n&eacute;cessaire</b>, une
+         red&eacute;finition de la m&eacute;thode <tt>equals</tt> sachant :
+         <dl>
+         <dd> - que deux plaisanciers sont &eacute;quivalents s'ils ont un
+             m&ecirc;me score et un nombre identique d'&eacute;tapes,
+             et s'ils ont la m&ecirc;me exigence. </dd>
+         <dd> - qu'un plaisancier et un voyageur sont &eacute;quivalents
+             s'ils ont un m&ecirc;me score et un nombre identique
+             d'&eacute;tapes. </dd>
+         </dl>
+      </dd>
+    </dl>
+  </body>
+</html>
